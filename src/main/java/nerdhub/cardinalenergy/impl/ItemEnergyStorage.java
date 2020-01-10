@@ -81,7 +81,7 @@ public class ItemEnergyStorage implements IEnergyItemStorage {
     private CompoundTag getEnergyTag(ItemStack stack) {
         CompoundTag energyTag;
 
-        if(!stack.hasTag() || !stack.getTag().containsKey(ENERGY_TAG)) {
+        if(!stack.hasTag() || !stack.getTag().contains(ENERGY_TAG)) {
             stack.setTag(new CompoundTag());
             energyTag = new CompoundTag();
             energyTag.putInt("capacity", this.capacity);
