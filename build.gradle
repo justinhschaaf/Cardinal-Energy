@@ -48,8 +48,10 @@ artifacts {
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
-			artifact jar
-			artifact sourcesJar
+			// From https://github.com/NerdHubMC/Cardinal-Components-API/blob/eafb9112eb632cb62ec995f8e16c3b89ad0c837e/build.gradle#L125-L127
+			artifact(file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")) {
+				builtBy(remapJar)
+			}
 			pom {
 				name = "Cardinal-Energy"
 				url = "https://github.com/NerdHubMC/Cardinal-Energy"
